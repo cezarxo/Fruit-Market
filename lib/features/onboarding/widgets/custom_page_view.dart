@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:fruit_app/features/onboarding/widgets/page_view_items.dart';
 
 class CustomPageView extends StatelessWidget {
-  const CustomPageView({super.key});
+  final PageController? pageController;
+  const CustomPageView({super.key, this.pageController});
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: const [
         PageViewItem(
           image: 'assets/images/onboarding1.png',
