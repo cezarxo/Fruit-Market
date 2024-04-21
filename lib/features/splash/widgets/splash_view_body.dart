@@ -48,7 +48,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
             child: const Text(
               'Fruit Market',
               style: TextStyle(
-                fontFamily: 'Poppins',
                 fontSize: 51,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFFFFFFFF),

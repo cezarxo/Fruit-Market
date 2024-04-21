@@ -11,9 +11,10 @@ class FruitMarket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      theme: ThemeData(fontFamily: 'Poppins'),
+      home: const SplashView(),
     );
   }
 }
