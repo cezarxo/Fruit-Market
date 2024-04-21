@@ -46,13 +46,20 @@ class _OnBoardingBodyViewState extends State<OnBoardingBodyView> {
           child: Positioned(
             top: SizeConfig.defaultSize! * 8.0,
             right: 32,
-            child: const Text(
-              'Skip',
-              style: TextStyle(
-                fontSize: 14,
-                color: Color(0xff898989),
+            child: GestureDetector(
+              onTap: () {
+                Get.to(() => const LoginView(),
+                    transition: Transition.leftToRight,
+                    duration: const Duration(milliseconds: 500));
+              },
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xff898989),
+                ),
+                textAlign: TextAlign.left,
               ),
-              textAlign: TextAlign.left,
             ),
           ),
         ),
