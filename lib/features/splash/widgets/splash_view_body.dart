@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fruit_app/core/utils/size_config.dart';
+import 'package:fruit_app/features/onboarding/presentation/onboarding_view.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -13,6 +16,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   AnimationController? animationController;
   Animation<double>? fadingAnimation;
+
   @override
   void initState() {
     super.initState();
@@ -21,6 +25,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     fadingAnimation =
         Tween<double>(begin: 0.2, end: 1).animate(animationController!);
     animationController?.repeat(reverse: true);
+    goToNextView();
   }
 
   @override
@@ -31,6 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       alignment: Alignment.center,
       child: Column(
@@ -53,5 +59,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ],
       ),
     );
+  }
+
+  void goToNextView() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const OnBoardingView(), transition: Transition.fade);
+    });
   }
 }
